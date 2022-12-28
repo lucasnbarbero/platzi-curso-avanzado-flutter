@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "562672075206",
+    "project_id": "curso-flutter-avanzado-23794",
+    "storage_bucket": "curso-flutter-avanzado-23794.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562672075206:android:cda10647c303f6196b32c7",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562672075206-ph659allts69pdio9tpq4pvdamaae0qt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVjkYmlqPbwB_I_V0M578uyRv5OoMWxf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562672075206-ph659allts69pdio9tpq4pvdamaae0qt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
