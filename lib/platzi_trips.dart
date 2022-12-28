@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './views/home_trips.dart';
+import 'Place/ui/screens/home_trips.dart';
 
 class PlatziTrips extends StatefulWidget {
   @override
