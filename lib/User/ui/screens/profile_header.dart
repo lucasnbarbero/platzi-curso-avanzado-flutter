@@ -8,10 +8,11 @@ class ProfileHeader extends StatelessWidget {
     final title = Text(
       'Profile',
       style: TextStyle(
-          fontFamily: 'Lato',
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          fontSize: 30.0),
+        fontFamily: 'Lato',
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        fontSize: 30.0,
+      ),
     );
 
     return Container(

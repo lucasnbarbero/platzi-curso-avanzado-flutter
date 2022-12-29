@@ -5,8 +5,10 @@ class CircleButton extends StatefulWidget {
   var icon;
   double iconSize;
   bool mini;
+  final VoidCallback onPressed;
 
-  CircleButton(this.color, this.icon, this.iconSize, this.mini);
+  CircleButton(this.color, this.icon, this.iconSize, this.mini,
+      {super.key, required this.onPressed});
 
   @override
   State<StatefulWidget> createState() {
@@ -23,7 +25,7 @@ class _CircleButton extends State<CircleButton> {
       child: FloatingActionButton(
         backgroundColor: widget.color,
         mini: widget.mini,
-        onPressed: onPressedButton,
+        onPressed: widget.onPressed,
         child: Icon(
           widget.icon,
           size: widget.iconSize,
