@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/User/model/user.dart';
 
 class UserInfo extends StatelessWidget {
-  String imgProfile;
-  String name;
-  String email;
+  User user;
 
-  UserInfo(this.imgProfile, this.name, this.email, {super.key});
+  UserInfo({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +17,7 @@ class UserInfo extends StatelessWidget {
               color: Colors.white, width: 2.0, style: BorderStyle.solid),
           shape: BoxShape.circle,
           image: DecorationImage(
-              fit: BoxFit.cover, image: AssetImage(imgProfile))),
+              fit: BoxFit.cover, image: NetworkImage(user.photo))),
     );
 
     final userInfo = Column(
@@ -27,7 +26,7 @@ class UserInfo extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(bottom: 5.0),
           child: Text(
-            name,
+            user.name,
             style: const TextStyle(
                 fontFamily: "Lato",
                 fontSize: 15.0,
@@ -36,7 +35,7 @@ class UserInfo extends StatelessWidget {
           ),
         ),
         Text(
-          email,
+          user.email,
           style: const TextStyle(
               fontSize: 15.0, color: Colors.white30, fontFamily: "Lato"),
         )
