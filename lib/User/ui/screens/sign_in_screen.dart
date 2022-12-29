@@ -1,4 +1,10 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/User/bloc/bloc_user.dart';
+import 'package:flutter_application_1/platzi_trips_cupertino.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import '../../../widgets/gradient_back.dart';
 import '../../../widgets/button_green.dart';
 
@@ -10,9 +16,27 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  late UserBloc _userBloc;
+
   @override
   Widget build(BuildContext context) {
-    return signInGoogleUI();
+    _userBloc = BlocProvider.of(context);
+
+    return _handleCurrentSession();
+  }
+
+  Widget _handleCurrentSession() {
+    return StreamBuilder(
+      stream: _userBloc.authStatus,
+      builder: ((BuildContext context, AsyncSnapshot snapshot) {
+        //  snapshot - data - Object User
+        if (!snapshot.hasData || snapshot.hasError) {
+          return signInGoogleUI();
+        } else {
+          return PlatziTripsCupertino();
+        }
+      }),
+    );
   }
 
   Widget signInGoogleUI() {
@@ -32,8 +56,20 @@ class _SignInScreenState extends State<SignInScreen> {
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
-              ButtonGreen(50.0, 300.0,
-                  text: 'Login with Gmail', onPressed: () {})
+              ButtonGreen(
+                text: "Login with Gmail",
+                onPressed: () {
+                  _userBloc
+                      .signIn()
+                      .then((user) =>
+                          // ignore: avoid_print
+                          print("El usuario es ${user.user?.displayName}"))
+                      // ignore: avoid_print
+                      .catchError((error) => print('Error'));
+                },
+                width: 300.0,
+                height: 50.0,
+              )
             ],
           ),
         ],
